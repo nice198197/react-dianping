@@ -6,12 +6,13 @@
   "author": "xj <289981872@qq.com>",
   "license": "MIT",
   "scripts": {
-        "dev": "NODE_ENV=dev webpack-dev-server",
-        "dev_win": "set NODE_ENV=dev && webpack-dev-server",
-        "dist": "NODE_ENV=online webpack --config ./webpack.production.config.js",
-        "dist_win": "set NODE_ENV=online&& webpack --config ./webpack.production.config.js"
+    "dev": "NODE_ENV=dev webpack-dev-server",
+    "dev_win": "set NODE_ENV=dev && webpack-dev-server",
+    "dist": "NODE_ENV=online webpack --config ./webpack.production.config.js",
+    "dist_win": "set NODE_ENV=online&& webpack --config ./webpack.production.config.js",
+    "mock": "node ./mock/server.js"
   },
-"devDependencies": {
+  "devDependencies": {
     "autoprefixer": "^6.4.0",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
@@ -22,8 +23,9 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
     "json-loader": "^0.5.4",
-    "koa": "^1.2.2",
-    "koa-router": "^5.4.0",
+    "koa": "^1.6.0",
+    "koa-body": "^2.5.0",
+    "koa-router": "^5.4.2",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "open-browser-webpack-plugin": "0.0.2",
@@ -35,7 +37,15 @@
     "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
-        "react": "^15.3.1",
-        "react-dom": "^15.3.1"
-    }
+    "es6-promise": "^4.2.4",
+    "react": "^15.3.1",
+    "react-addons-pure-render-mixin": "^15.6.2",
+    "react-dom": "^15.3.1",
+    "react-redux": "^5.0.7",
+    "react-router": "^2.7.0",
+    "react-swipe": "^5.1.1",
+    "redux": "^4.0.0",
+    "swipe-js-iso": "^2.0.4",
+    "whatwg-fetch": "^2.0.4"
+  }
 }
