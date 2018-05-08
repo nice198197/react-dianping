@@ -1,3 +1,10 @@
+/*
+ * @Author: xiongjian 
+ * @Date: 2018-05-08 19:03:50 
+ * @Last Modified by:   xiongjian 
+ * @Last Modified time: 2018-05-08 19:03:50 
+ */
+
 import * as actionTypes from '../constants/userinfo'
 
 const initialState = {}

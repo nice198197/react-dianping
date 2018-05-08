@@ -1,8 +1,8 @@
 /*
  * @Author: xiongjian 
  * @Date: 2018-05-08 16:34:47 
- * @Last Modified by:   xiongjian 
- * @Last Modified time: 2018-05-08 16:34:47 
+ * @Last Modified by: xiongjian
+ * @Last Modified time: 2018-05-08 18:58:29
  */
 
 import React from 'react'
@@ -19,7 +19,7 @@ class HomeHeader extends React.Component {
         return (
             <div className="home-header clear-fix">
                 <div className="home-header-left float-left">
-                    <span>重庆</span>
+                    <span>{this.props.cityName}</span>
                     &nbsp;
                     <i className="icon-angle-down"></i>
                 </div>

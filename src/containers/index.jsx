@@ -1,3 +1,10 @@
+/*
+ * @Author: xiongjian 
+ * @Date: 2018-05-08 19:03:56 
+ * @Last Modified by:   xiongjian 
+ * @Last Modified time: 2018-05-08 19:03:56 
+ */
+
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { bindActionCreators } from 'redux'
@@ -18,12 +25,15 @@ class App extends React.Component {
         return (
             <div>
                 {
-                    this.state.initDone ? this.props.children : <div>加载中...</div>
+                    this.state.initDone
+                    ? this.props.children
+                    : <div>正在加载...</div>
                 }
             </div>
         )
     }
     componentDidMount() {
+        // 获取位置信息
         let cityName = LocalStore.getItem(CITYNAME)
         if (cityName == null) {
             cityName = '重庆'
@@ -31,12 +41,15 @@ class App extends React.Component {
         this.props.userInfoActions.update({
             cityName: cityName
         })
+
+        // 更改状态
         this.setState({
             initDone: true
         })
     }
 }
 
+// -------------------redux react 绑定--------------------
 
 function mapStateToProps(state) {
     return {
