@@ -18,31 +18,25 @@ class App extends React.Component {
         return (
             <div>
                 {
-                    this.state.initDone
-                    ? this.props.children
-                    : <div>正在加载...</div>
+                    this.state.initDone ? this.props.children : <div>加载中...</div>
                 }
             </div>
         )
     }
     componentDidMount() {
-        // 获取位置信息
         let cityName = LocalStore.getItem(CITYNAME)
         if (cityName == null) {
-            cityName = '北京'
+            cityName = '重庆'
         }
         this.props.userInfoActions.update({
             cityName: cityName
         })
-
-        // 更改状态
         this.setState({
             initDone: true
         })
     }
 }
 
-// -------------------redux react 绑定--------------------
 
 function mapStateToProps(state) {
     return {

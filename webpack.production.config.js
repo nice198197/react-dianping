@@ -10,7 +10,8 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "js/[name].[chunkhash:8].js"
+        filename: "js/[name].[chunkhash:8].js",
+        publicPath: '/dist/'
     },
     resolve:{
         extensions: ['', '.js','.jsx']
@@ -37,12 +38,12 @@ module.exports = {
             },
             { 
                 test: /\.(png|gif|jpg|jpeg|bmp)$/i, 
-                loader:'url-loader?limit=5000&name=img/[name].[chunkhash:8].[ext]' 
+                loader:'url-loader?limit=5000&name=images/[name].[hash:8].[ext]' 
             },
             { 
-                test: /\.(png|woff|woff2|svg|ttf|eot)($|\?)/i, 
-                loader:'url-loader?limit=5000&name=fonts/[name].[chunkhash:8].[ext]'
-            }
+                test: /\.(png|woff|svg|eot|ttf|woff2)\??.*$/, 
+                loader: 'url-loader?limit=100&name=fonts/[name].[hash:8].[ext]' 
+            },   
         ]
     },
     postcss: [
@@ -51,11 +52,12 @@ module.exports = {
 
     plugins: [
         // webpack 内置的 banner-plugin
-        new webpack.BannerPlugin("Copyright by wangfupeng1988@github.com."),
+        new webpack.BannerPlugin("Copyright by https://github.com/nice198197/"),
 
         // html 模板插件
         new HtmlWebpackPlugin({
-            template: __dirname + '/src/index.html'
+            template: __dirname + '/src/index.html',
+            favicon: './favicon.ico'
         }),
 
         // 定义为生产环境，编译 React 时压缩到最小
@@ -74,8 +76,8 @@ module.exports = {
             }
         }),
         
-        // 分离CSS和JS文件
-        new ExtractTextPlugin('/css/[name].[chunkhash:8].css'), 
+        // 从js里分离出css（js和js引入的css的 chunkhash 是相同的，导致无法区分css和js的更新）
+        new ExtractTextPlugin('css/[name].[chunkhash:8].css'), 
         
         // 提供公共代码
         new webpack.optimize.CommonsChunkPlugin({
