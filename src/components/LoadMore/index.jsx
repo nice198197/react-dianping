@@ -1,8 +1,8 @@
 /*
  * @Author: xiongjian 
  * @Date: 2018-05-08 19:35:13 
- * @Last Modified by:   xiongjian 
- * @Last Modified time: 2018-05-08 19:35:13 
+ * @Last Modified by: xiongjian
+ * @Last Modified time: 2018-05-09 14:17:34
  */
 
 import React from 'react'
@@ -21,14 +21,10 @@ class LoadMore extends React.Component {
                 {
                     this.props.isLoadingMore
                     ? <span>加载中...</span>
-                    : <span onClick={this.loadMoreHandle.bind(this)}>加载更多</span>
+                    : <span>加载更多</span>
                 }
             </div>
         )
-    }
-    loadMoreHandle() {
-        // 执行传输过来的
-        this.props.loadMoreFn();
     }
     componentDidMount() {
         // 使用滚动时自动加载更多

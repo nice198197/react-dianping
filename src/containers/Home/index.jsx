@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-08 16:34:59 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-08 18:56:55
+ * @Last Modified time: 2018-05-09 17:00:25
  */
 
 import React from 'react'
@@ -29,6 +29,9 @@ class Home extends React.Component {
                 <LikeList cityName={this.props.userinfo.cityName}/>
             </div>
         )
+    }
+    componentDidMount() {
+        document.title =  `${this.props.userinfo.cityName}美食，${this.props.userinfo.cityName}餐厅餐饮，${this.props.userinfo.cityName}团购，${this.props.userinfo.cityName}...`;
     }
 }
 

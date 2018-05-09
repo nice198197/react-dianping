@@ -1,3 +1,10 @@
+/*
+ * @Author: xiongjian 
+ * @Date: 2018-05-09 13:56:40 
+ * @Last Modified by:   xiongjian 
+ * @Last Modified time: 2018-05-09 13:56:40 
+ */
+
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 

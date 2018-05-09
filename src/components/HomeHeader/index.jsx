@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-08 16:34:47 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-08 18:58:29
+ * @Last Modified time: 2018-05-09 17:11:10
  */
 
 import React from 'react'
@@ -20,7 +20,8 @@ class HomeHeader extends React.Component {
             <div className="home-header clear-fix">
                 <div className="home-header-left float-left">
                     <span>{this.props.cityName}</span>
-                    &nbsp;
+                </div>
+                <div className="home-header-drop float-left">
                     <i className="icon-angle-down"></i>
                 </div>
                 <div className="home-header-right float-right">
@@ -29,7 +30,7 @@ class HomeHeader extends React.Component {
                 <div className="home-header-middle">
                     <div className="search-container">
                         <i className="icon-search"></i>
-                        <input type="text" placeholder="请输入搜索关键字"/>
+                        <input type="text" placeholder="请输入关键字"/>
                     </div>
                 </div>
             </div>
