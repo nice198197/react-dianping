@@ -2,14 +2,14 @@
  * @Author: xiongjian 
  * @Date: 2018-05-08 15:31:45 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-08 15:37:15
+ * @Last Modified time: 2018-05-10 15:11:17
  */
 
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import ReactSwipe from 'react-swipe'
 
-import './style.less'
+import './index.less'
 
 class Category extends React.Component {
     constructor(props, context) {
@@ -22,7 +22,6 @@ class Category extends React.Component {
     render() {
         let _this = this;
         const opt = {
-            auto: 3000,
             callback(index) {
                 _this.setState({
                     index: index

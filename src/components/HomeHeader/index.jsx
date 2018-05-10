@@ -2,11 +2,12 @@
  * @Author: xiongjian 
  * @Date: 2018-05-08 16:34:47 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-09 17:11:10
+ * @Last Modified time: 2018-05-10 14:19:40
  */
 
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import { hashHistory } from 'react-router' 
 
 import './style.less'
 
@@ -18,7 +19,7 @@ class HomeHeader extends React.Component {
     render() {
         return (
             <div className="home-header clear-fix">
-                <div className="home-header-left float-left">
+                <div className="home-header-left float-left" onClick={(e)=>this.toCity(e)}>
                     <span>{this.props.cityName}</span>
                 </div>
                 <div className="home-header-drop float-left">
@@ -35,6 +36,9 @@ class HomeHeader extends React.Component {
                 </div>
             </div>
         )
+    }
+    toCity() {
+        hashHistory.push('/city')
     }
 }
 

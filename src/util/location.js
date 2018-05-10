@@ -10,7 +10,7 @@ export default function location() {
                 gc.getLocation(pt, function(rs){    
                     let addComp = rs.addressComponents;    
                     // 获取位置信息
-                    let cityName = addComp.district0;
+                    let cityName = addComp.district;
                     if(cityName) {
                         resolve(cityName)
                     }  else {

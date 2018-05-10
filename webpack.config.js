@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-09 09:26:21 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-09 11:28:16
+ * @Last Modified time: 2018-05-10 17:47:29
  */
 
 var path = require('path')
@@ -78,6 +78,8 @@ module.exports = {
     ],
 
     devServer: {
+        disableHostCheck: true,
+        host: '0.0.0.0',
         proxy: {  
             '/api': { 
                 target: 'http://localhost:3000', 
