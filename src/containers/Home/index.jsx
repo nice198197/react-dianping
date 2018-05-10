@@ -20,9 +20,9 @@ class Home extends React.Component {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
-    render() {
+    render() {   
         return (
-            <div>
+            <div style={{overflow:'hidden'}}>
                 <HomeHeader cityName={this.props.userinfo.cityName}/>
                 <BannerDown/>
                 <Category/>

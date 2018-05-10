@@ -5,9 +5,43 @@
  * @Last Modified time: 2018-05-10 16:11:48
  */
 .banner-down {
-    padding-top: 50px;
-    img {
-        width: 100%;
-        height: 100%;
+    width: 100%;
+    height: 120px;
+    margin-top: 50px;
+    overflow: hidden;
+    background-image: url("//www.dpfile.com/app/app-m-module/static/666419d6641cf0faec444fc12b50383d.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    .title {
+        display: flex;
+        justify-content: center;
+        margin: 24px 0 14px;
+        height: 30px;
+        font-size: 20px;
+        color: #333;
+        letter-spacing: 1px;
+    }
+    .btns {
+        display: flex;
+        justify-content: center;
+        a {
+            height: 40px;
+            width: 126px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border-radius: 2px;
+            border: 1px solid #e9203d;
+            &.btn-openapp {
+                color: #e9203d;
+                margin-right: 15px;
+            }
+            &.btn-downloadapp {
+                color: #fff;
+                background-color: #e9203d;
+            }
+        }
     }
 }

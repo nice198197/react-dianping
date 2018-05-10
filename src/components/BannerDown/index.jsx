@@ -7,6 +7,7 @@
 
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import { Link } from 'react-router';
 
 import './index.less'
 class BannerDown extends React.Component {
@@ -17,7 +18,11 @@ class BannerDown extends React.Component {
     render() {
         return (
             <div className="banner-down">
-                <img src="//ms0.meituan.net/touch/img/download_banner.png" alt=""/>
+                <div className="title">吃喝玩乐，找优惠</div>
+                <div className="btns">
+                    <Link to="" className="btn-openapp">打开大众点评</Link>
+                    <Link to="" className="btn-downloadapp">下载App享特价</Link>
+                </div>
             </div>
         )
     }
