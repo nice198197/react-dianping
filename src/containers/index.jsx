@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-08 19:03:56 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-09 17:40:02
+ * @Last Modified time: 2018-05-11 14:06:34
  */
 
 import React from 'react'
@@ -35,7 +35,7 @@ class App extends React.Component {
     }
     componentDidMount() {
         location().then(cityName=>{
-            this.props.userInfoActions.save({
+            this.props.userInfoActions.saveCity({
                 cityName: cityName
             })
             // 更改状态
@@ -43,7 +43,7 @@ class App extends React.Component {
                 initDone: true
             })  
         },cityName=>{
-            this.props.userInfoActions.save({
+            this.props.userInfoActions.saveCity({
                 cityName: cityName
             })
             // 更改状态

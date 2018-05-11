@@ -2,14 +2,14 @@
  * @Author: xiongjian 
  * @Date: 2018-05-08 19:32:50 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-09 14:26:58
+ * @Last Modified time: 2018-05-11 10:37:34
  */
 
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { getListData } from '../../../fetch/home/home'
 
-import ListComponent from '../../../components/LikeList'
+import ListComponent from '../../../components/List'
 import LoadMore from '../../../components/LoadMore'
 
 import './style.less'

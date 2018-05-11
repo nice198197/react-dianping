@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-08 16:34:47 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-10 14:19:40
+ * @Last Modified time: 2018-05-11 11:06:25
  */
 
 import React from 'react'
@@ -31,14 +31,21 @@ class HomeHeader extends React.Component {
                 <div className="home-header-middle">
                     <div className="search-container">
                         <i className="icon-search"></i>
-                        <input type="text" placeholder="请输入关键字"/>
+                        <input 
+                            type="text" 
+                            placeholder="请输入关键字" 
+                            onFocus={this.FocusHandle.bind(this)}/>
                     </div>
                 </div>
             </div>
         )
     }
+    // 跳转到城市选择页
     toCity() {
         hashHistory.push('/city')
+    }
+    FocusHandle() {
+        hashHistory.push('/search')
     }
 }
 

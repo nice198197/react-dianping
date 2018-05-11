@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-07 16:46:06 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-08 10:51:13
+ * @Last Modified time: 2018-05-11 11:10:59
  */
 
 import React from 'react'
@@ -13,6 +13,7 @@ import Home from '../containers/Home'
 import City from '../containers/City'
 import User from '../containers/User'
 import Search from '../containers/Search'
+import SearchResult from '../containers/SearchResult'
 import Detail from '../containers/Detail'
 import NotFound from '../containers/404'
 
@@ -27,7 +28,8 @@ class RouterMap extends React.Component {
                     <IndexRoute component={Home}/>
                     <Route path='/city' component={City}/>
                     <Route path='/User' component={User}/>
-                    <Route path='/search/:type(/:keyword)' component={Search}/>
+                    <Route path='/search' component={Search}/>
+                    <Route path='/search/:category(/:keyword)' component={SearchResult}/>
                     <Route path='/detail/:id' component={Detail}/>
                     <Route path='*' component={NotFound}/>
                 </Route>
