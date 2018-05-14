@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-08 19:32:50 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-11 10:37:34
+ * @Last Modified time: 2018-05-14 14:30:25
  */
 
 import React from 'react'
@@ -32,7 +32,7 @@ class LikeList extends React.Component {
                 {
                     this.state.data.length
                     ? <ListComponent data={this.state.data}/>
-                    : <div>{/*加载中...*/}</div>
+                    : <div>数据加载中...</div>
                 }
                 {
                     this.state.hasMore

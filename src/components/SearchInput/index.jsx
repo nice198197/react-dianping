@@ -1,11 +1,17 @@
+/*
+ * @Author: xiongjian 
+ * @Date: 2018-05-14 09:37:08 
+ * @Last Modified by: xiongjian
+ * @Last Modified time: 2018-05-14 12:49:15
+ */
+
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { SEARCHHISTORY } from '../../config/localStoreKey'
 import LocalStore from '../../util/localStore'
 
 import './index.less'
-
-let searchHistory = []; 
+ 
 class SearchInput extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -25,16 +31,6 @@ class SearchInput extends React.Component {
                 value={this.state.value}/>
         )
     }
-    componentDidMount() {
-        // 默认值
-        this.setState({
-            value: this.props.value || ''
-        })
-        let historyLists = localStorage.getItem(SEARCHHISTORY)
-        if (historyLists==null) {
-            searchHistory = []
-        }
-    }
     ChangeHandle(e) {
         // 监控变化
         this.setState({
@@ -46,14 +42,25 @@ class SearchInput extends React.Component {
         if (e.keyCode !== 13) {
             return
         }
-        this.props.enterHandle(e.target.value)
-        let historyLists = localStorage.getItem(SEARCHHISTORY)
-        if(historyLists) {
-            historyLists.concat(historyLists)
+        let historyLists = JSON.parse(localStorage.getItem(SEARCHHISTORY))
+        if(historyLists==null) {
+            historyLists= []
+            historyLists.push(e.target.value);
+            // 调用父组件（SearchHeader）方法，跳转到搜索结果页并传递搜索关键字
+            this.props.enterHandle(e.target.value)
+            // 存入local
+            LocalStore.setItem(SEARCHHISTORY,historyLists)
+        } else {
+            // 历史记录不能有重复
+            if(historyLists.indexOf(e.target.value)>=0) {
+                return
+            }
+            historyLists.push(e.target.value)
+            // 调用父组件（SearchHeader）方法，跳转到搜索结果页并传递搜索关键字
+            this.props.enterHandle(e.target.value)
+            // 存入local
+            LocalStore.setItem(SEARCHHISTORY,historyLists)
         }
-        searchHistory.push(e.target.value);
-        LocalStore.setItem(SEARCHHISTORY,searchHistory)
-        
     }
 }
 

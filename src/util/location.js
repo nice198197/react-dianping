@@ -10,11 +10,11 @@ export default function location() {
                 gc.getLocation(pt, function(rs){    
                     let addComp = rs.addressComponents;    
                     // 获取位置信息
-                    let cityName = addComp.district;
+                    let cityName = addComp.cityName;
                     if(cityName) {
                         resolve(cityName)
                     }  else {
-                        reject('北京市')
+                        reject('重庆市')
                     }
                 });  
             } else {  

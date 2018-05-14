@@ -1,0 +1,101 @@
+/*
+ * @Author: xiongjian 
+ * @Date: 2018-05-14 17:01:28 
+ * @Last Modified by: xiongjian
+ * @Last Modified time: 2018-05-14 17:25:32
+ */
+
+// 飞入飞出
+.slide-in-appear {
+    transform: translate3D(100%, 0, 0);
+    transition: all .6s linear;
+    &.slide-in-appear-active {
+      transform: translate3D(0, 0, 0);
+    }
+}
+.slide-in-enter {
+    transform: translate3D(100%, 0, 0);
+    transition: all .6s linear;
+    &.slide-in-enter-active {
+      transform: translate3D(0, 0, 0);
+    }
+}
+.slide-in-leave {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+    transition: all .6s linear;
+    &.slide-in-leave-active {
+      opacity: 0.01;
+      transform: translate3D(-100%, 0, 0);
+    }
+}
+// 淡入淡出
+.opacity-enter {
+    opacity: 0.01;
+}
+.opacity-enter.opacity-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+.opacity-leave {
+    opacity: 1;
+}
+.opacity-leave.opacity-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
+.opacity-appear {
+    opacity: 0.01;
+}
+.opacity-appear.opacity-appear-active {
+    opacity: 1;
+    transition: opacity .6s ease-in;
+}
+// 左滑动
+.left-enter {
+    position: absolute;
+    top: 0;
+    background: #fff;
+    z-index: 10000;
+    opacity: 1;
+    transform: translateX(100%);
+}
+.left-enter.left-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all .6s ease-out;
+}
+.left-leave {
+    opacity: 1;
+    transform: translateX(0);
+}
+.left-leave.left-leave-active {
+    opacity: 1;
+    transform: translateX(-100%);
+    transition: all .6s ease-out;
+}
+
+// 右滑动
+.right-enter {
+    transform: translateX(-100%);
+}
+.right-enter.right-enter-active {
+    transform: translateX(0);
+    transition: all .6s ease-out;
+}
+.right-leave {
+    position: absolute;
+    top: 0;
+    background: #fff;
+    z-index: 10000;
+    opacity: 1;
+    transform: translateX(0);
+}
+.right-leave.right-leave-active {
+    opacity: 1;
+    transform: translateX(100%);
+    transition: all .6s ease-out;
+}

@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-10 13:57:58 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-11 16:39:08
+ * @Last Modified time: 2018-05-14 17:21:22
  */
 
 import React from 'react'
@@ -28,7 +28,6 @@ class City extends React.Component {
     render() {
         return (
             <div>
-                
                 <Header title="选择城市"/>
                 <CurrentCity cityName={this.props.userinfo.cityName}/>
                 <CityList changeFn={this.changeCity.bind(this)}/>
@@ -42,7 +41,7 @@ class City extends React.Component {
         // 修改 redux
         const userinfo = this.props.userinfo
         userinfo.cityName = newCity
-        this.props.userInfoActions.saveCity(userinfo)
+        this.props.userInfoActions.update(userinfo)
 
         // // 修改 localStorage
         // localStore.setItem(CITYNAME, newCity)

@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-07 16:46:06 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-11 11:10:59
+ * @Last Modified time: 2018-05-14 15:27:06
  */
 
 import React from 'react'
@@ -11,6 +11,7 @@ import { Router, Route, IndexRoute } from 'react-router'
 import App from '../containers'
 import Home from '../containers/Home'
 import City from '../containers/City'
+import Login from '../containers/Login'
 import User from '../containers/User'
 import Search from '../containers/Search'
 import SearchResult from '../containers/SearchResult'
@@ -27,6 +28,7 @@ class RouterMap extends React.Component {
                 <Route path='/' component={App}>
                     <IndexRoute component={Home}/>
                     <Route path='/city' component={City}/>
+                    <Route path='/Login(/:router)' component={Login}/>
                     <Route path='/User' component={User}/>
                     <Route path='/search' component={Search}/>
                     <Route path='/search/:category(/:keyword)' component={SearchResult}/>

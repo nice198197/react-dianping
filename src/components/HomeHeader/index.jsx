@@ -2,12 +2,12 @@
  * @Author: xiongjian 
  * @Date: 2018-05-08 16:34:47 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-11 11:06:25
+ * @Last Modified time: 2018-05-14 15:08:14
  */
 
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import { hashHistory } from 'react-router' 
+import { hashHistory, Link } from 'react-router' 
 
 import './style.less'
 
@@ -26,7 +26,9 @@ class HomeHeader extends React.Component {
                     <i className="icon-angle-down"></i>
                 </div>
                 <div className="home-header-right float-right">
-                    <i className="icon-user"></i>
+                    <Link to="/Login">
+                        <i className="icon-user"></i>
+                    </Link>
                 </div>
                 <div className="home-header-middle">
                     <div className="search-container">

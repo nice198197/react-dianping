@@ -2,26 +2,21 @@
  * @Author: xiongjian 
  * @Date: 2018-05-09 15:42:09 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-11 17:52:44
+ * @Last Modified time: 2018-05-14 13:12:27
  */
 
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import LocalStore from '../../util/localStore'
 import { SEARCHHISTORY } from '../../config/localStoreKey'
 
-
 import './index.less'
 
-let searchHistory = [];
 class SearchHot extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
-
     render() {
         return (
             <div className="search-list-container">
@@ -45,7 +40,7 @@ class SearchHot extends React.Component {
                         <span onClick={(e)=>{this.clickHandle('温泉')}}>温泉</span>
                     </li>
                     <li>
-                        <span onClick={(e)=>{this.clickHandle('提拉米苏')}}>提拉米苏</span>
+                        <span onClick={(e)=>{this.clickHandle('乡村基')}}>乡村基</span>
                     </li>
                     <li>
                         <span onClick={(e)=>{this.clickHandle('德克士')}}>德克士</span>
@@ -54,22 +49,30 @@ class SearchHot extends React.Component {
             </div>
         )
     }
-    componentDidMount() {
-        // 如果historyLists为空或不存在，表示需要清除记录，则重新开始将searchHistory计数
-        let historyLists = localStorage.getItem(SEARCHHISTORY)
+    clickHandle(keyword) {
+        let historyLists = JSON.parse(localStorage.getItem(SEARCHHISTORY))
+        // 根据localStorage是否存在SEARCHHISTORY，来判断是之前是否有清空操作
         if (historyLists==null) {
-            searchHistory = []
+            historyLists = []
+            historyLists.push(keyword)
+            // 调用父组件方法，跳转到搜索结果页并传递搜索关键字
+            this.props.changeFn(keyword)
+            // 存入local
+            LocalStore.setItem(SEARCHHISTORY,historyLists) 
+        } else {
+            // 历史记录不能有重复
+            if(historyLists.indexOf(keyword)>=0) {
+                return
+            }
+            // searchHistory = searchHistory.concat(historyLists)
+            historyLists.push(keyword)
+            
+            // 调用父组件(Search)方法，跳转到搜索结果页并传递搜索关键字
+            this.props.changeFn(keyword)
+            // 存入local
+            LocalStore.setItem(SEARCHHISTORY,historyLists) 
         }
     }
-    clickHandle(keyword) {
-        let historyLists = localStorage.getItem(SEARCHHISTORY)
-        searchHistory.push(keyword)
-        // 调用父组件方法，跳转到搜索结果页并传递搜索关键字
-        this.props.changeFn(keyword)
-        // 存入local
-        LocalStore.setItem(SEARCHHISTORY,searchHistory) 
-    }
 }
-
 
 export default SearchHot

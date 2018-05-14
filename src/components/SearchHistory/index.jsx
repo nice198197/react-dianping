@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-09 15:42:09 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-11 17:55:37
+ * @Last Modified time: 2018-05-14 13:12:27
  */
 
 import React from 'react'
@@ -47,15 +47,13 @@ class SearchHistory extends React.Component {
         }
     }
     clickHandle(keyword) {
-        // 调用父组件方法，跳转到搜索结果页并传递搜索关键字
+        // 调用父组件(Search)方法，跳转到搜索结果页并传递搜索关键字
         this.props.changeFn(keyword)
     }
     clearHistory() {
         localStorage.removeItem(SEARCHHISTORY)
         this.setState({
             historyLists: []
-        },function() {
-            console.log('清除')
         })
     }
 }

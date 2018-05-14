@@ -1,8 +1,8 @@
 /*
  * @Author: xiongjian 
  * @Date: 2018-05-08 16:35:05 
- * @Last Modified by:   xiongjian 
- * @Last Modified time: 2018-05-08 16:35:05 
+ * @Last Modified by: xiongjian
+ * @Last Modified time: 2018-05-14 14:29:26
  */
 
 import React from 'react'
@@ -24,7 +24,7 @@ class Ad extends React.Component {
             {
                 this.state.data.length
                 ? <HomeAd data={this.state.data}/>
-                : <div>加载中... </div>
+                : <div>数据加载中... </div>
             }
             </div>
         )

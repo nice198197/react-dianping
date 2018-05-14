@@ -2,7 +2,7 @@
  * @Author: xiongjian 
  * @Date: 2018-05-09 15:42:09 
  * @Last Modified by: xiongjian
- * @Last Modified time: 2018-05-11 10:31:46
+ * @Last Modified time: 2018-05-14 10:21:45
  */
 
 import React from 'react'
@@ -21,18 +21,16 @@ class SearchHeader extends React.Component {
     render() {
         return (
             <div className="search-header clear-fix">
-                <span className="back-icon float-left" onClick={this.clickHandle.bind(this)}>
-                    <i className="icon-chevron-left"></i>
-                </span>
                 <div className="input-container">
                     <i className="icon-search"></i>
                     &nbsp;
-                    <SearchInput value={this.props.keyword || ''} enterHandle={this.enterHandle.bind(this)}/>
+                    <SearchInput value={this.props.keyword || ''} 
+                    enterHandle={this.enterHandle.bind(this)}/>
                 </div>
+                <span className="cancel" onClick={(e)=>this.clickHandle(e)}>取消</span>
             </div>
         )
     }
-    
     clickHandle() {
         window.history.back()
     }
