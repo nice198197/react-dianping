@@ -7,6 +7,7 @@
 
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import { hashHistory } from 'react-router'
 
 import './style.less'
 
@@ -18,7 +19,7 @@ class ListItem extends React.Component {
     render() {
         const data = this.props.data
         return (
-            <div className="list-item clear-fix">
+            <div className="list-item clear-fix" onClick={(e)=>{this.handleClick(data.id)}}>
                 <div className="item-img-container float-left">
                     <img src={data.img} alt={data.title}/>
                 </div>
@@ -37,6 +38,9 @@ class ListItem extends React.Component {
                 </div>
             </div>
         )
+    }
+    handleClick(id) {
+        hashHistory.push('/detail/'+id)
     }
 }
 
