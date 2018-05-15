@@ -8,7 +8,7 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
-
+import Loading from '../../../components/Loading'
 import ListCompoent from '../../../components/List'
 import LoadMore from '../../../components/LoadMore'
 
@@ -34,12 +34,12 @@ class SearchList extends React.Component {
                 {
                     this.state.data.length
                     ? <ListCompoent data={this.state.data}/>
-                    : <div>{/* 加载中... */}</div>
+                    : <div style={{position:'relative',height:'100px'}}><Loading type="bubbles"/></div>
                 }
                 {
                     this.state.hasMore
                     ? <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.loadMoreData.bind(this)}/>
-                    : ''
+                    : <div className="noMore">————没有更多数据————</div>
                 }
             </div>
         )

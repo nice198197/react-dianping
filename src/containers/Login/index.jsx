@@ -10,9 +10,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { hashHistory } from 'react-router'
-
 import * as userInfoActionsFromOtherFile from '../../actions/userinfo' 
-
 import Header from '../../components/Header'
 import LoginComponent from '../../components/Login'
 
@@ -26,7 +24,7 @@ class Login extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div style={{position:'fixed',left:'0',right:'0',top:'0',bottom:'0',background:'#f1f1f1'}}>
                 <Header title="登录"/>
                 {
                     // 等待验证之后，再显示登录信息

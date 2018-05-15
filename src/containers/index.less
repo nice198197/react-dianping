@@ -4,7 +4,9 @@
  * @Last Modified by: xiongjian
  * @Last Modified time: 2018-05-14 17:25:32
  */
-
+/*
+页面转场动画
+*/
 // 飞入飞出
 .slide-in-appear {
     transform: translate3D(100%, 0, 0);
@@ -38,21 +40,21 @@
 }
 .opacity-enter.opacity-enter-active {
     opacity: 1;
-    transition: opacity 500ms ease-in;
+    transition: opacity 500ms linear;
 }
 .opacity-leave {
     opacity: 1;
 }
 .opacity-leave.opacity-leave-active {
     opacity: 0.01;
-    transition: opacity 300ms ease-in;
+    transition: opacity 300ms linear;
 }
 .opacity-appear {
     opacity: 0.01;
 }
 .opacity-appear.opacity-appear-active {
     opacity: 1;
-    transition: opacity .6s ease-in;
+    transition: opacity .6s linear;
 }
 // 左滑动
 .left-enter {

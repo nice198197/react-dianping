@@ -32,8 +32,8 @@ class App extends React.Component {
                 component="div"
                 className="react-container"
                 transitionName="opacity"
-                transitionEnterTimeout={300}
-                transitionLeaveTimeout={300}>
+                transitionEnterTimeout={600}
+                transitionLeaveTimeout={600}>
                     <div key={this.props.location.pathname} className={this.props.location.pathname}>
                     {
                         this.state.initDone

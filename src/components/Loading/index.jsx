@@ -18,7 +18,7 @@ class Loading extends React.Component {
     render() {
         return (
             <div className="loading">
-                <ReactLoading type="bars" color="#e9203d" height={100} width={100}/>
+                <ReactLoading type={this.props.type || "spokes"} color="#e9203d" height={100} width={100}/>
             </div>
         )
     }  

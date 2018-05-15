@@ -20,7 +20,7 @@ class SearchResult extends React.Component {
     render() {
         const params = this.props.params
         return (
-            <div>
+            <div className="bg">
                 <Header title='搜索结果'/>
                 <div className="searchInput-container">
                     <i className="icon-search"></i>

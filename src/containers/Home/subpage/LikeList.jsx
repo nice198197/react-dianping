@@ -8,7 +8,7 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { getListData } from '../../../fetch/home/home'
-
+import Loading from '../../../components/Loading'
 import ListComponent from '../../../components/List'
 import LoadMore from '../../../components/LoadMore'
 
@@ -32,12 +32,12 @@ class LikeList extends React.Component {
                 {
                     this.state.data.length
                     ? <ListComponent data={this.state.data}/>
-                    : <div>数据加载中...</div>
+                    : <div style={{position:'relative',height:'100px'}}><Loading type="bubbles"/></div>
                 }
                 {
                     this.state.hasMore
                     ? <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.loadMoreData.bind(this)}/>
-                    : <div className="noMore">--没有更多数据--</div>
+                    : <div className="noMore">————没有更多数据————</div>
                 }
             </div>
         )

@@ -13,7 +13,7 @@ class Detail extends React.Component {
         // 获取商户ID
         const id = this.props.params.id
         return (
-            <div>
+            <div className="bg">
                 <Header title="商户详情"/>
                 <Info id={id}/>
                 <Comment id={id}/>

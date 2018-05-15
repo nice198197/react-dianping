@@ -7,8 +7,10 @@
 
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import HomeAd from '../../../components/HomeAd/index'
+import HomeAd from '../../../components/HomeAd'
+import Loading from '../../../components/Loading'
 import { getAdData } from '../../../fetch/home/home'
+
 
 class Ad extends React.Component {
     constructor(props, context) {
@@ -24,7 +26,7 @@ class Ad extends React.Component {
             {
                 this.state.data.length
                 ? <HomeAd data={this.state.data}/>
-                : <div>数据加载中... </div>
+                : <div style={{position:'relative',height:'100px'}}><Loading type="bubbles"/></div>
             }
             </div>
         )

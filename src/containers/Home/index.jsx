@@ -22,7 +22,7 @@ class Home extends React.Component {
     }
     render() {   
         return (
-            <div style={{overflow:'hidden'}}>
+            <div className="bg">
                 <HomeHeader cityName={this.props.userinfo.cityName}/>
                 <BannerDown/>
                 <Category/>

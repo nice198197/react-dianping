@@ -1,25 +1,26 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import Rate from 'react-tiny-rate'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+
+import Item from './Item'
 
 import './index.less'
 
-class Star extends React.Component {
+class OrderList extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
     render() {
-        let star = this.props.star || 0
-        if (star > 5) {
-            star = star % 5
-        }
+        const data = this.props.data
 
         return (
-            <Rate value={star} theme="red" animate='3' readonly={true}></Rate>
+            <div>
+                {data.map((item, index) => {
+                    return <Item key={index} data={item}/>
+                })}
+            </div>
         )
     }
 }
 
-export default Star
+export default OrderList

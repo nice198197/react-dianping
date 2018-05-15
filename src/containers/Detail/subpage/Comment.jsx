@@ -1,11 +1,11 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { getCommentData } from '../../../fetch/detail/detai'
-
+import Loading from '../../../components/Loading'
 import ListComponent from '../../../components/CommentList'
 import LoadMore from '../../../components/LoadMore'
 
-import './style.less'
+import './index.less'
 
 class Comment extends React.Component {
     constructor(props, context) {
@@ -25,12 +25,12 @@ class Comment extends React.Component {
                 {
                     this.state.data.length
                     ? <ListComponent data={this.state.data}/>
-                    : <div>{/* 加载中... */}</div>
+                    : <div style={{position:'relative',height:'100px'}}><Loading type="bubbles"/></div>
                 }
                 {
                     this.state.hasMore
                     ? <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.loadMoreData.bind(this)}/>
-                    : ''
+                    : <div className="noMore">————没有更多数据————</div>
                 }
             </div>
         )
@@ -77,7 +77,7 @@ class Comment extends React.Component {
 
             this.setState({
                 hasMore: hasMore,
-                // 注意，这里讲最新获取的数据，拼接到原数据之后，使用 concat 函数
+                // 数据拼接
                 data: this.state.data.concat(data)
             })
         }).catch(ex => {

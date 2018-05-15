@@ -1,6 +1,6 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-
+import Loading from '../../../components/Loading'
 import { getInfoData } from '../../../fetch/detail/detai'
 import DetailInfo from '../../../components/DetailInfo'
 
@@ -18,7 +18,7 @@ class Info extends React.Component {
                 {
                     this.state.info
                     ? <DetailInfo data={this.state.info}/>
-                    : ''
+                    : <div style={{position:'relative',height:'100px'}}><Loading type="bubbles"/></div>
                 }
             </div>
         )
